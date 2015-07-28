@@ -5,8 +5,6 @@ from django.contrib import messages
 from braces.views import LoginRequiredMixin
 from . import forms
 from . import models
-import logging
-
 
 class ShowProfile(LoginRequiredMixin, generic.TemplateView):
     template_name = "profiles/show_profile.html"
