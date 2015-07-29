@@ -79,7 +79,7 @@ INSTALLED_APPS = (
 
     'profiles',
     'accounts',
-
+    'blog'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -138,3 +138,4 @@ LOGIN_REDIRECT_URL = reverse_lazy("profiles:show_self")
 LOGIN_URL = reverse_lazy("accounts:login")
 
 THUMBNAIL_EXTENSION = 'png'     # Or any extn for your thumbnails
+BLOG_LIMIT = 5
