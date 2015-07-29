@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}{% include '_brandname.html' %} :: Latest News{% endblock %}
+{% block container %}
+<div class="container">
+    <h1>Latest Blog Posts</h1>
+    {% for post in posts %}
+        <article>
+        <h2>{{ post.title }}</h2>
+        <p style="padding-bottom: 0;"><small>Posted by</small><span class="glyphicon-user"> <a href="{% url 'profiles:show' p_id=post.owner.id %}">{{ post.owner.name }}</a></span></p>
+        {% autoescape off %}{{ post.body|truncatewords_html:15 }}{% endautoescape %} <a href="{% url 'blog:SingleBlog' post.id %}">Read on.</a>
+
+        </article>
+    {% endfor %}
+</div>
+{% endblock %}
