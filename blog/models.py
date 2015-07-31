@@ -13,6 +13,7 @@ class Tag(models.Model):
 
     name = models.CharField(max_length=250,verbose_name='Post tags')
     slug = models.SlugField(verbose_name='Tag Slug')
+
     @python_2_unicode_compatible
     def __str__(self):
         return self.name
@@ -29,7 +30,7 @@ class Blogpost(models.Model):
     slug = models.SlugField(max_length=250, verbose_name='Post slug')
     body = models.CharField(max_length=12500, verbose_name='Post body', default='Post body belongs here')
     owner = models.ForeignKey(User)
-    tags = models.ManyToManyField(Tag)
+    tags = models.ManyToManyField(Tag, related_name='posts')
     created_on = models.DateTimeField("Posted on", auto_now=False, auto_now_add=True)
     updated_on = models.DateTimeField("Last updated on", auto_now=True, auto_now_add=False)
     update_count = models.IntegerField("Update Count", blank=True, null=True)
